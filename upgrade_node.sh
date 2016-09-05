@@ -11,7 +11,7 @@ function join {
 latest_vertion=
 current_version=
 # 配置需要全局安装的包
-useful_modules=(gulp jshint esnext nodemon)
+useful_modules=(gulp jshint esnext nodemon npm-check-updates pm2)
 
 latest_vertion=`nvm ls-remote | awk '$1 ~ /^v/ { print $1; }' | awk 'END{print}'`
 current_version=`nvm current`
