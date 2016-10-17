@@ -25,3 +25,10 @@ chmod +x upgrade_node.sh
 nvm use ${latest_vertion}
 nvm alias default ${latest_vertion}
 ```
+
+> ** TODO **
+```sh
+pip install -U aliyuncli // 更新阿里云api
+```
+
+
