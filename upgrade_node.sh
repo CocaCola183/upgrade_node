@@ -11,25 +11,19 @@ function join {
 latest_vertion=
 current_version=
 # 配置需要全局安装的包
-useful_modules=(gulp jshint esnext nodemon npm-check-updates pm2)
+useful_modules=(gulp nodemon npm-check-updates pm2 eslint babel-eslint)
 
 latest_vertion=`nvm ls-remote | awk '$1 ~ /^v/ { print $1; }' | awk 'END{print}'`
 current_version=`nvm current`
 install_modules=`join " " "${useful_modules[@]}"`
 
-if [ "$current_version"x > "$latest_vertion"x ]
-then
-	echo ">>> latest version: $current_version";
-else
-	echo ">>> latest version: $latest_vertion";
-fi
-
+echo ">>> latest version: $latest_vertion"
 echo ">>> current version: $current_version"
 echo '>>> node modules to be installed:' "$install_modules"
 
-if [ "$current_version"x > "$latest_vertion"x ]
+if [ "$current_version"x == "$latest_vertion"x ]
 then
-	echo '>>> current node is latest version now';
+	echo '>>> current node is latest version now'
 else
 	echo ">>> start installing node-${latest_vertion}"
 	nvm install $latest_vertion
